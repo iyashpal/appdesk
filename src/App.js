@@ -13,13 +13,24 @@ import History from './components/pages/history';
 import Settings from './components/pages/settings';
 
 function App() {
+const [navClasses, setNavClasses] = useState(null);
+
+
+function toggle() {
+if (navClasses === null) {
+ setNavClasses('class-name')
+} else {
+ setNavClasses(null)
+}
+
+}
 
   return (
    <>
    <div className='main-wrapper'>
 <BrowserRouter>
-<div className='toggle-btn'><i class="fa-solid fa-bars"></i></div>
-<div className='sticky-nav'>
+<div onClick={toggle} className='toggle-btn'><i class="fa-solid fa-bars"></i></div>
+<div className={'sticky-nav ' +navClasses }>
 
 <Navbar />
 
